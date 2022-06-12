@@ -17,6 +17,9 @@ public class OmdbClientConfig {
 
   public static final int TIMEOUT = 5000;
 
+  @Value("${omdb.secure}")
+  private boolean secure;
+
   @Value("${omdb.url}")
   private String url;
 
@@ -24,7 +27,6 @@ public class OmdbClientConfig {
   public WebClient omdbWebClient() {
     var httpClient =
         HttpClient.create()
-            .secure()
             .option(CONNECT_TIMEOUT_MILLIS, TIMEOUT)
             .compress(true)
             .doOnConnected(
@@ -33,6 +35,9 @@ public class OmdbClientConfig {
                   connection.addHandlerLast(
                       new WriteTimeoutHandler(TIMEOUT, TimeUnit.MILLISECONDS));
                 });
+    if (secure) {
+      httpClient.secure();
+    }
     return WebClient.builder()
         .clientConnector(new ReactorClientHttpConnector(httpClient))
         .build();

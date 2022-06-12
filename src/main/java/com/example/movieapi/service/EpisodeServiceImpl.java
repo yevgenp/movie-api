@@ -38,6 +38,7 @@ public class EpisodeServiceImpl implements EpisodeService {
             .build())
         .retrieve()
         .bodyToMono(EpisodeResponse.class);
+        //TODO: Handle error
   }
 
   @Override
