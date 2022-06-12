@@ -1,0 +1,28 @@
+{
+  "Title": "Game of Thrones",
+  "Season": "3",
+  "totalSeasons": "8",
+  "Episodes": [
+    {
+      "Title": "Valar Dohaeris",
+      "Released": "2013-03-31",
+      "Episode": "1",
+      "imdbRating": "8.7",
+      "imdbID": "tt2178782"
+    },
+    {
+      "Title": "Walk of Punishment",
+      "Released": "2013-04-14",
+      "Episode": "3",
+      "imdbRating": "8.7",
+      "imdbID": "tt2178802"
+    },
+    {
+      "Title": "The Rains of Castamere",
+      "Released": "2013-06-02",
+      "Episode": "9",
+      "imdbRating": "9.9",
+      "imdbID": "tt2178784"
+    }
+  ]
+}
