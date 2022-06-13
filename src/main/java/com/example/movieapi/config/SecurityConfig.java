@@ -45,6 +45,7 @@ public class SecurityConfig {
         .and()
         .csrf().disable()
         .authorizeExchange()
+        .pathMatchers(GET, "/actuator/**").permitAll()
         .pathMatchers(GET, EpisodesController.PATH).permitAll()
         .anyExchange().authenticated()
         .and()
