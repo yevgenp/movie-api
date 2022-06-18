@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
@@ -53,6 +54,7 @@ public class EpisodeServiceImpl implements EpisodeService {
         .defaultIfEmpty(new EpisodeResponse());
   }
 
+  @Transactional
   @Override
   public Mono<?> bookmark(String username, String episodeId) {
     return bookmarksRepository.findByUsername(username)
@@ -62,7 +64,7 @@ public class EpisodeServiceImpl implements EpisodeService {
           return b;
         })
         .flatMap(bookmarksRepository::save)
-        .switchIfEmpty(bookmarksRepository.save(new Bookmarks(true, username, Set.of(episodeId))));
+        .switchIfEmpty(bookmarksRepository.save(new Bookmarks(username, Set.of(episodeId))));
 
   }
 }

@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
   <changeSet author="admin" id="1">
     <createTable tableName="bookmarks">
-      <column name="id" type="VARCHAR(255)">
+      <column name="id" type="BIGINT AUTO_INCREMENT">
         <constraints primaryKey="true" nullable="false"/>
       </column>
       <column name="username" type="VARCHAR(255)">

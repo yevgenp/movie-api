@@ -67,7 +67,7 @@ class EpisodesControllerTest {
   @Test
   void getBookmarked() throws Exception {
     //given
-    Bookmarks bookmarks = new Bookmarks(true, "user1",
+    Bookmarks bookmarks = new Bookmarks("user1",
         Set.of("tt2178782", "tt2178802", "tt2178784"));
     bookmarks = bookmarksRepository.save(bookmarks).block();
     //when
@@ -102,7 +102,7 @@ class EpisodesControllerTest {
   @Test
   void bookmarkSuccess() throws Exception {
     //given
-    Bookmarks bookmarks = new Bookmarks(true, "user2", Set.of("tt2178782", "tt2178802"));
+    Bookmarks bookmarks = new Bookmarks("user2", Set.of("tt2178782", "tt2178802"));
     bookmarks = bookmarksRepository.save(bookmarks).block();
     //when
     webClient.post()

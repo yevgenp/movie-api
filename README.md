@@ -1,6 +1,6 @@
 # Getting Started
 
-Application uses Basic authentication with predefined users (username/password):
+Completely reactive application uses Basic authentication with predefined users (username/password):
 
 user1/user1
 
